@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Classifier</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Shape Classifier</h1>
+
+        <!-- Training Images -->
+        <div class="training-images">
+            <h2>Training Images</h2>
+            <div class="images">
+                <div><img src="training_circle.jpeg" alt="Circle"><p>Circle</p></div>
+                <div><img src="training_square.jpeg" alt="Square"><p>Square</p></div>
+                <div><img src="training_triangle.jpeg" alt="Triangle"><p>Triangle</p></div>
+            </div>
+            <button onclick="startTraining()">Train Model</button>
+            <div id="trainingStatus"></div>
+        </div>
+
+        <!-- Drawing Section -->
+        <div class="drawing-section">
+            <h2>Draw a Shape</h2>
+            <canvas id="drawCanvas" width="280" height="280"></canvas><br>
+            <button onclick="clearCanvas()">Clear Canvas</button>
+            <button onclick="predictShape()">Predict Shape</button>
+            <div id="predictionResult"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
