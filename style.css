@@ -1,50 +1,285 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Fira+Mono:wght@400;700&display=swap');
+
+/* 
+╭─────────────────────────────────────────────╮
+│         Shape detector - Two AI modals.     │
+├────────────────────────┬────────────────────┤
+│ Perpose . . . . . . .  │ Educational and    │
+│                        │ skill demonstration│ 
+│                        │                    │
+│ AI Model . . . . . . . │ Sequential         │ 
+│                        │                    │ 
+│ Date . . . . . . . . . │ 25 June 2025       │ 
+│ Author . . . . . . . . │ Mandeep Singh      │ 
+╰────────────────────────┴────────────────────╯
+*/
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e3eafc;
+    margin: 20px;
+    padding: 0;
+    font-size: 17px;
+    color: #2d3a5a;
+}
+
+header {
     text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
+    margin-bottom: 30px;
+    color: #2d3a5a;
+}
+
+header h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.models {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    max-width: 600px;
+    width: 100%;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgb(0 88 179);
+    border-radius: 18px;
     padding: 20px;
+    background-color: #c7d6f9;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
+.models h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.model {    
+    background-color: #d6e4ff;
     padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(100, 140, 255, 0.13);
+    margin-bottom: 20px;
+    text-align: left;
+    color: #2d3a5a;
+    font-size: 1.08rem;
 }
 
-h1, h2 {
-    color: #333;
+.model h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.upload-section, .drawing-section {
-    margin: 20px 0;
+.model ul {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1rem;
+    margin-left: 18px;
+}
+
+.training {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    max-width: 300px;
+    width: 100%;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgb(0 88 179);
+    border-radius: 18px;
+    padding: 20px;
+    background-color: #c7d6f9;
+}
+
+.training h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.training-info {
+    max-width: 300px;
+    width: 100%;
+    background-color: #d6e4ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(100, 140, 255, 0.13);
+    text-align: left;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    height: 250px;
+    color: #2d3a5a;
+    font-size: 1.0rem;
+}
+
+.training-info > * {
+    margin: 10px !important;
+}
+
+.training-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #a9d1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(100, 140, 255, 0.10);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #19a114;
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 24px rgb(0 88 179);
+    border-radius: 18px;
+    padding: 20px;
+    background-color: #c7d6f9;
+    color: #2d3a5a;
+    margin-bottom: 40px;
+}
+
+.results h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.result-graph {
+    width: 100%;
+    background-color: #d6e4ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(100, 140, 255, 0.13);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    color: #2d3a5a;
+    font-size: 1.05rem;
+}
+
+.result-graph h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 canvas {
-    border: 2px solid #000;
-    background-color: #fff;
-    cursor: crosshair;
+    
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-style: dashed;
+    border-color: #c7d6f9;
 }
 
 button {
     padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1.1rem;
     border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 5px;
+    border-radius: 10px;
+    background-color: #76cd84;
+    color: #2d3a5a;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(100, 140, 255, 0.10);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #b6ccfe;
 }
 
-#trainingStatus, #predictionResult {
+button#trainModel1Btn {
+    width: 100%;
+    box-sizing: border-box;
     margin-top: 10px;
-    font-size: 18px;
-    color: #555;
+    max-width: 300px;
+}
+
+.canvas {
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    border: 2px solid #a3bffa;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(100, 140, 255, 0.13);
+}
+
+.trainTest {
+    background: linear-gradient(135deg, #e3eafc 0%, #b6ccfe 100%);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(100, 140, 255, 0.13);
+    margin-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    color: #2d3a5a;
+    font-size: 1.08rem;
+}
+
+.trainTest h2 {
+    color: #2d3a5a;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.trainTest p {
+    color: #5c7fa3;
+    margin-bottom: 15px;
+    font-size: 1.0rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.waitNote {
+    color: #f05e5e;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+/* Copyright font size */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    font-size: 0.9em;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
 }
