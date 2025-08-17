@@ -1,38 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--
+╭─────────────────────────────────────────────╮
+│         Shape detector - Two AI modals.     │
+├────────────────────────┬────────────────────┤
+│ Perpose . . . . . . .  │ Educational and    │
+│                        │ skill demonstration│ 
+│                        │                    │
+│ AI Model . . . . . . . │ Sequential         │ 
+│                        │                    │ 
+│ Date . . . . . . . . . │ 25 June 2025       │ 
+│ Author . . . . . . . . │ Mandeep Singh      │ 
+╰────────────────────────┴────────────────────╯
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shape Classifier</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Shape Identifier</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Shape Classifier</h1>
 
-        <!-- Training Images -->
-        <div class="training-images">
-            <h2>Training Images</h2>
-            <div class="images">
-                <div><img src="training_circle.jpeg" alt="Circle"><p>Circle</p></div>
-                <div><img src="training_square.jpeg" alt="Square"><p>Square</p></div>
-                <div><img src="training_triangle.jpeg" alt="Triangle"><p>Triangle</p></div>
+    <header>
+        <h1>2 Different Models to Identify Shape</h1>
+    </header>
+
+    <section class="trainTest">
+
+        <section class="models">
+            <h2>layer Structure</h2>
+
+            <div class="model" id="model1">
+                <h2>Model 1 - 5 Layer Structure</h2>
+                <ul>
+                    <li>layer 1 - Conv2D - 32 filters, 3x3 kernel, ReLU</li>
+                    <li>layer 2 - MaxPooling2D - (2x2)</li>
+                    <li>layer 3 - Flatten</li>
+                    <li>layer 4 - Dense - 64 units, ReLU</li>
+                    <li>layer 5 - Dense - 3 units, softmax</li>
+                </ul>
             </div>
-            <button onclick="startTraining()">Train Model</button>
-            <div id="trainingStatus"></div>
+            <div class="model" id="model2">
+                <h2>Model 2 - 8 Layer Structure</h2>
+                <ul>
+                    <li>layer 1 - Conv2D - 32 filters, (3x3) kernel, ReLU</li>
+                    <li>layer 2 - MaxPooling2D - (2x2)</li>
+                    <li>layer 3 - Conv2D - 64 filters, (3x3) kernel, ReLU</li>
+                    <li>layer 4 - MaxPooling2D - (2x2)</li>
+                    <li>layer 5 - Flatten</li>
+                    <li>layer 6 - Dense - 128 units, ReLU</li>
+                    <li>layer 7 - Dropout - rate (0.3)</li>
+                    <li>layer 8 - Dense - 3 units, softmax</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="training">
+            <h2>Training</h2>
+            <div class="training-info" id="training-model1">
+                <h3>Model 1</h3>
+                <p id="accuracy-model1">Accuracy: 0%</p>
+                <p id="loss-model1">Loss: 0%</p>
+                <p id="epochs-model1">epochs: 0</p>
+                <p id="images-model1">training images: 0</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar1"></div>
+                </div>
+                <p id="training-status1">Training not started.</p>
+            </div>
+
+            <div class="training-info" id="training-model2">
+                <h3>Model 2</h3>
+                <p id="accuracy-model2">Accuracy: 0%</p>
+                <p id="loss-model2">Loss: 0%</p>
+                <p id="epochs-model2">epochs: 0</p>
+                <p id="images-model2">training images: 0</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar2"></div>
+                </div>
+                <p id="training-status2">Training not started.</p>
+            </div>
+            <button id="trainModel1Btn">Train Model 1</button>
         </div>
 
-        <!-- Drawing Section -->
-        <div class="drawing-section">
-            <h2>Draw a Shape</h2>
-            <canvas id="drawCanvas" width="280" height="280"></canvas><br>
-            <button onclick="clearCanvas()">Clear Canvas</button>
-            <button onclick="predictShape()">Predict Shape</button>
-            <div id="predictionResult"></div>
+        <div class="results">
+            <h2>Results</h2>
+            <div class="result-graph" id="result1">
+                <h3>Model 1 Results</h3>
+                <canvas id="graph1" width="300" height="250"></canvas>
+            </div>
+
+            <div class="result-graph" id="result2">
+                <h3>Model 2 Results</h3>
+                <canvas id="graph2" width="300" height="250"></canvas>
+            </div>
         </div>
-    </div>
+
+        <section class="test-area">
+            <h2>Test Model</h2>
+            <p>Circle, square or triangle.</p>
+
+            <canvas class="canvas" id="canvas" width="280" height="280"></canvas><br>
+            <button id="test-button">Predict</button>
+            <button id="clear-canvas">Clear</button>
+        </section>
+
+        <div class="waitNote"> 
+            <div>Please wait for the model to train, then wait again to load weights into its neural net—good things come to those who wait!.<div>
+        </div>
+        
+
+    </section>
+
+    <!-- Copyright Lines -->
+    <footer>
+        <p>&copy; 2025 Mandeep Singh, | For educational purposes only. | tensorflow - sequential model | </p>
+    </footer>
 
     <script src="script.js"></script>
+    <script src="modelScript.js"></script>
 </body>
+
 </html>
